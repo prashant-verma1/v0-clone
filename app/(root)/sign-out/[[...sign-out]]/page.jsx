@@ -1,0 +1,14 @@
+import React from 'react'
+import { SignOut } from '@clerk/nextjs'
+
+const SignOutPage = () => {
+  return (
+    <div className="flex flex-col max-w-3xl mx-auto w-full">
+        <section className='space-y-6 pt-[16vh] 2xl:pt-48'>
+            <SignOut/>
+        </section>
+    </div>
+  )
+}
+
+export default SignOutPage;
