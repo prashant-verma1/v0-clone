@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Logo from "./logo.jsx";
+
 import { Button } from "@/components/ui/button.jsx";
 import { ModeToggle } from "@/components/ui/toggle-mode.jsx";
 import {
@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav className="p-4 fixed top-0 left-0 right-0 z-50">
       <div className="max-w-5xl mx-auto w-full flex justify-between items-center">
 
-        <Logo />
+        <img src="logo.svg" className="w-20 h-20" />
         <ModeToggle />
 
         {!isSignedIn && (
