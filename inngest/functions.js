@@ -1,15 +1,16 @@
-// src/inngest/functions.ts
 import { inngest } from "./client";
 
 export const processTask = inngest.createFunction(
-  { id: "process-task", triggers: [{ event: "app/task.created" }] },
+  {
+    id: "process-task",
+    name: "Process Task",
+    triggers: [{ event: "app/hello" }],
+  },
   async ({ event, step }) => {
-    // const result = await step.run("handle-task", async () => {
-    //   return { processed: true, id: event.data.id };
-    // });
+    // This function runs when the "app/hello" event is sent
+    console.log("Received event:", event.name);
 
-    await step.sleep("pause", "1s");
-
-    return { message: `Task complete` };
+    // Add your processing logic here
+    return { message: "Hello from Inngest!", event: event.name };
   }
 );

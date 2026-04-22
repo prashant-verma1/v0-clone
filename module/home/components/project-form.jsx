@@ -6,6 +6,7 @@ import { ArrowUpIcon, Loader2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useState } from "react";
+import { onInvoke } from "../action";
 import z from "zod";
 
 import { cn } from "@/lib/utils";
@@ -91,9 +92,21 @@ const ProjectsForm = () => {
     } catch (error) {}
   };
 
+  const onInvokeAI = async() => {
+    try{
+      const res = await onInvoke()
+      console.log(res)
+      toast.success("AI Agent Invoked Successfully")
+    } catch(error){
+      console.log(error)
+      toast.error("Failed to Invoke AI Agent")
+    }
+  }
+
   return (
     <div className="space-y-8">
       {/* Template Grid */}
+      <Button onClick={onInvokeAI}>Invoke AI Agent</Button>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {PROJECT_TEMPLATES.map((template, index) => (
           <button
